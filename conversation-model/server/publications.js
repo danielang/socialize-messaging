@@ -7,7 +7,7 @@
  * @param   {String}       conversationId The _id of the conversation the user is viewing
  */
 Meteor.publish("viewingConversation", function(conversationId){
-    this.unblock();
+    check(conversationId, String);
 
     if(!this.userId){
         return this.ready();
@@ -37,7 +37,7 @@ Meteor.publish("viewingConversation", function(conversationId){
  * @param   {String}   conversationId The _id of the conversation
  */
 Meteor.publish("typing", function(conversationId){
-    this.unblock();
+    check(conversationId, String);
 
     if(!this.userId){
         return this.ready();
